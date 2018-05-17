@@ -5,6 +5,8 @@ import TextField from 'material-ui/TextField/TextField'
 import SelectField from 'material-ui/SelectField'
 import MenuField from 'material-ui/MenuItem'
 import { Menu, MenuItem } from 'material-ui'
+import ImageResults from '../ImageResults/ImageResults'
+import CircularProgress from 'material-ui/CircularProgress/CircularProgress'
 
 class Search extends React.Component{
   state = {
@@ -56,6 +58,9 @@ class Search extends React.Component{
           <MenuItem value={50} primaryText="50" />
         </SelectField>
         <br />
+        {
+          this.state.images.length > 0 ? (<ImageResults images={this.state.images} />) : (<CircularProgress size={50} />)
+        }
       </div>
     )
   }
