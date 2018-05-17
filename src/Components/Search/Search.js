@@ -29,8 +29,11 @@ class Search extends React.Component{
         fetch(this.state.proxyUrl + URL)
           .then(res => res.json())
           .then(result => this.setState({ images: result.hits }))
+          .catch(error => console.log(error))
       })
   }
+
+  onAmountChange = (event, index, value) => this.setState({ amount: value})
 
   render(){
     console.log(this.state.images)
@@ -45,7 +48,7 @@ class Search extends React.Component{
         <SelectField  name="amount" 
                       floatingLabelText="Amount"
                       value={this.state.amount}
-                      onChange={this.handleChange}>
+                      onChange={this.onAmountChange}>
           <MenuItem value={5} primaryText="5" />
           <MenuItem value={10} primaryText="10" />
           <MenuItem value={15} primaryText="15" />
