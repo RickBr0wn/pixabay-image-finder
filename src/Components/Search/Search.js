@@ -59,7 +59,8 @@ class Search extends React.Component{
         </SelectField>
         <br />
         {
-          this.state.images.length > 0 ? (<ImageResults images={this.state.images} />) : (<CircularProgress size={50} />)
+          this.state.images.length > 0 ? (<ImageResults images={this.state.images} />) : null
+          // (<CircularProgress size={50} />)
         }
       </div>
     )
